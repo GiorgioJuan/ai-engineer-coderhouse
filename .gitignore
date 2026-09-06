@@ -1,0 +1,33 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Secretos
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Base vectorial local (se regenera con ingest.py)
+vectorstore/
+
+# Checkpoints del agente (se regeneran)
+checkpoints.sqlite
+*.sqlite
+
+# Docker / entorno local
+.env.local
