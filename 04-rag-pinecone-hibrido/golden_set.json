@@ -1,0 +1,27 @@
+[
+  {
+    "pregunta": "¿Que valor de top_k conviene usar al recuperar fragmentos?",
+    "documento_esperado": "03-embeddings-y-vectores.md",
+    "fuentes_relevantes": ["03-embeddings-y-vectores.md", "05-pinecone-y-busqueda-hibrida.md"]
+  },
+  {
+    "pregunta": "¿Que hace asyncio.Semaphore y para que sirve?",
+    "documento_esperado": "01-asincronia.md",
+    "fuentes_relevantes": ["01-asincronia.md"]
+  },
+  {
+    "pregunta": "¿Cual es la diferencia entre invoke, batch y stream en el protocolo Runnable?",
+    "documento_esperado": "02-lcel.md",
+    "fuentes_relevantes": ["02-lcel.md"]
+  },
+  {
+    "pregunta": "¿Como se detecta que el modelo corto la respuesta por falta de tokens?",
+    "documento_esperado": "04-resiliencia-y-validacion.md",
+    "fuentes_relevantes": ["04-resiliencia-y-validacion.md"]
+  },
+  {
+    "pregunta": "¿Que es un namespace en Pinecone y por que conviene usarlo?",
+    "documento_esperado": "05-pinecone-y-busqueda-hibrida.md",
+    "fuentes_relevantes": ["05-pinecone-y-busqueda-hibrida.md"]
+  }
+]
