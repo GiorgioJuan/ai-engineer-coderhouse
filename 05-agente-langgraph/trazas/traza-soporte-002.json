@@ -1,0 +1,33 @@
+{
+  "nota": "Traza generada con el grafo, las herramientas y el checkpointer REALES. Las decisiones del modelo estan guionadas (no hubo llamada a la API), asi que los textos del agente son fijos. Regenerala con `python main.py` y tus claves.",
+  "thread_id": "soporte-002",
+  "recursion_limit": 10,
+  "llamadas_a_herramientas": 1,
+  "traza": [
+    {
+      "tipo": "human",
+      "contenido": "¿Cuántos pedidos tuvo el cliente de apellido a?"
+    },
+    {
+      "tipo": "ai",
+      "accion": "llamar_herramientas",
+      "tool_calls": [
+        {
+          "herramienta": "buscar_cliente",
+          "argumentos": {
+            "nombre": "a"
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "tool",
+      "herramienta": "buscar_cliente",
+      "resultado": "{\"error\": \"'a' coincide con más de un cliente. Pedile al usuario que aclare.\", \"coincidencias\": [{\"cliente_id\": 101, \"nombre\": \"Ana Gutierrez\"}, {\"cliente_id\": 102, \"nombre\": \"Bruno Salas\"}, {\"cliente_id\": 103, \"nombre\": \"Carla Ponce\"}]}"
+    },
+    {
+      "tipo": "ai",
+      "contenido": "Hay varios clientes que coinciden. Te referis a Ana, Carla o Bruno Salas?"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "nota": "Traza generada con el grafo, las herramientas y el checkpointer REALES. Las decisiones del modelo estan guionadas (no hubo llamada a la API), asi que los textos del agente son fijos. Regenerala con `python main.py` y tus claves.",
+  "thread_id": "soporte-001",
+  "recursion_limit": 10,
+  "llamadas_a_herramientas": 3,
+  "traza": [
+    {
+      "tipo": "human",
+      "contenido": "¿Cuántos pedidos tuvo Bruno y cuál fue el total?"
+    },
+    {
+      "tipo": "ai",
+      "accion": "llamar_herramientas",
+      "tool_calls": [
+        {
+          "herramienta": "buscar_cliente",
+          "argumentos": {
+            "nombre": "Bruno"
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "tool",
+      "herramienta": "buscar_cliente",
+      "resultado": "{\"cliente_id\": 102, \"nombre\": \"Bruno Salas\"}"
+    },
+    {
+      "tipo": "ai",
+      "accion": "llamar_herramientas",
+      "tool_calls": [
+        {
+          "herramienta": "buscar_pedidos",
+          "argumentos": {
+            "cliente_id": 102
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "tool",
+      "herramienta": "buscar_pedidos",
+      "resultado": "{\"cliente_id\": 102, \"cantidad\": 3, \"total\": 14500, \"pedidos\": [{\"pedido_id\": 5002, \"fecha\": \"2024-01-15\", \"monto\": 7300, \"estado\": \"entregado\"}, {\"pedido_id\": 5019, \"fecha\": \"2024-02-20\", \"monto\": 5100, \"estado\": \"en_transito\"}, {\"pedido_id\": 5031, \"fecha\": \"2024-03-08\", \"monto\": 2100, \"estado\": \"pendiente\"}]}"
+    },
+    {
+      "tipo": "ai",
+      "contenido": "Bruno Salas tuvo 3 pedidos por un total de $14.500."
+    },
+    {
+      "tipo": "human",
+      "contenido": "¿Y cuál fue el último? Dame el detalle completo."
+    },
+    {
+      "tipo": "ai",
+      "accion": "llamar_herramientas",
+      "tool_calls": [
+        {
+          "herramienta": "detalle_pedido",
+          "argumentos": {
+            "pedido_id": 5031
+          }
+        }
+      ]
+    },
+    {
+      "tipo": "tool",
+      "herramienta": "detalle_pedido",
+      "resultado": "{\"pedido_id\": 5031, \"fecha\": \"2024-03-08\", \"monto\": 2100, \"estado\": \"pendiente\", \"cliente_id\": 102, \"cliente\": \"Bruno Salas\", \"articulos\": [\"teclado mecánico\", \"hub USB-C\"], \"transportista\": \"Andreani\"}"
+    },
+    {
+      "tipo": "ai",
+      "contenido": "El ultimo fue el 5031 del 2024-03-08 por $2.100, pendiente, via Andreani."
+    }
+  ]
+}
