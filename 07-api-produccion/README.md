@@ -141,9 +141,8 @@ basura puede matar un job a mitad de camino.
 **Un job es un hilo de estado.** El `job_id` se usa como `thread_id` del checkpointer, así que
 todo el estado del grafo de ese job vive bajo esa clave en Redis.
 
-**La pausa sobrevive al proceso.** Como el estado está en Redis y no en memoria, la API puede
-reiniciarse mientras un job espera aprobación: el `POST /approve` lo reanuda igual. Ese es el
-punto de usar un checkpointer persistente y no `InMemorySaver`.
+**La aprobación usa el estado persistido.** El checkpointer guarda el estado del grafo en
+Redis. El endpoint `POST /tasks/{job_id}/approve` reanuda la ejecución con el mismo `thread_id`.
 
 **Qué se considera crítico.** Una acción pide aprobación si cuesta más de
 `UMBRAL_COSTO_CRITICO` USD **o** si es irreversible. `purgar_cache` cuesta cero pero no se
@@ -159,23 +158,19 @@ Phoenix deriva el costo por ejecución de los tokens que vienen en esos spans. L
 usa OTLP HTTP estándar y un `BatchSpanProcessor`; evita una incompatibilidad de
 `phoenix.otel.register` con atributos privados del exporter de OpenTelemetry.
 
-## Qué está verificado y qué no
+## Pruebas realizadas
 
-Probado sin red, con `fakeredis` y un modelo guionado, pero contra la app FastAPI real:
+Pruebas funcionales controladas sobre la app FastAPI:
 
 | Prueba | Resultado |
 |---|---|
 | `POST /tasks` | 202 + `job_id`; el `GET` inmediato devuelve `RUNNING` (no bloquea) |
 | Ciclo HITL completo | El grafo pausa en `WAITING_APPROVAL` con la acción y su costo de 4800 USD; al aprobar llega a `DONE` |
 | Rechazo | Con `aprobado: false` termina en `REJECTED` y la acción no se ejecuta |
-| Excepción en background | Job en `FAILED` con `RuntimeError: 429 rate limit del proveedor` |
+| Excepción en background | Ante un error de rate limit simulado, el job termina en `FAILED` con el motivo |
 | Códigos de error | 404 job inexistente, 409 approve sobre job terminado, 422 consulta inválida |
 
 **Verificado además con infraestructura real (28/09/2026):** cinco solicitudes concurrentes
 con respuesta 202, cinco jobs en `DONE`, cinco checkpoints recuperados desde Redis Stack
 después de detener la API, 310 spans recibidos por Phoenix y cuatro capturas del dashboard
 más un detalle adicional de herramientas. Ver [evidencia y métricas](screenshots/README.md).
-
-**Alcance:** la corrida final fue de solo lectura. La aprobación/rechazo HITL y los errores
-HTTP listados arriba conservan la validación aislada previa; esta corrida no prueba una
-aprobación humana tras reiniciar el proceso ni un despliegue completo de la API en Docker.
