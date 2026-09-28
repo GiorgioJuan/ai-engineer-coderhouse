@@ -1,0 +1,219 @@
+{
+  "project": "orquestador-multiagente-entrega7",
+  "spans": 310,
+  "root_traces": 5,
+  "phoenix_p95_seconds": 17.183771,
+  "total_cost_usd": 0.0073126499999999995,
+  "traces": [
+    {
+      "job_id": "092e923b7adf",
+      "trace_id": "e5023744ee0507c20ba3bae919d20069",
+      "seconds": 17.18841,
+      "prompt_tokens": 7673,
+      "completion_tokens": 1171,
+      "cached_input_tokens": 1024,
+      "cost_usd": 0.00177675,
+      "llm_calls": 9,
+      "nodes": [
+        {
+          "name": "sintesis",
+          "seconds": 1.789412,
+          "tokens": 817
+        },
+        {
+          "name": "supervisor",
+          "seconds": 0.971381,
+          "tokens": 1104
+        },
+        {
+          "name": "analista",
+          "seconds": 5.845708,
+          "tokens": 3874
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.804943,
+          "tokens": 886
+        },
+        {
+          "name": "investigador",
+          "seconds": 5.035049,
+          "tokens": 1671
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.672963,
+          "tokens": 492
+        }
+      ]
+    },
+    {
+      "job_id": "b7f5a4647c6a",
+      "trace_id": "9feaadd3c440f1a6e6fc7fd5b0e52e99",
+      "seconds": 17.165215,
+      "prompt_tokens": 7698,
+      "completion_tokens": 1262,
+      "cached_input_tokens": 1024,
+      "cost_usd": 0.0018350999999999999,
+      "llm_calls": 9,
+      "nodes": [
+        {
+          "name": "sintesis",
+          "seconds": 1.642475,
+          "tokens": 904
+        },
+        {
+          "name": "supervisor",
+          "seconds": 0.992407,
+          "tokens": 1175
+        },
+        {
+          "name": "analista",
+          "seconds": 6.669481,
+          "tokens": 3873
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.144138,
+          "tokens": 860
+        },
+        {
+          "name": "investigador",
+          "seconds": 4.834825,
+          "tokens": 1658
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.84978,
+          "tokens": 490
+        }
+      ]
+    },
+    {
+      "job_id": "389e3c475abb",
+      "trace_id": "27fc419db7c95224f2ca1afdffcfc1c7",
+      "seconds": 13.670731,
+      "prompt_tokens": 5917,
+      "completion_tokens": 780,
+      "cached_input_tokens": 0,
+      "cost_usd": 0.0013555499999999999,
+      "llm_calls": 9,
+      "nodes": [
+        {
+          "name": "sintesis",
+          "seconds": 1.401081,
+          "tokens": 615
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.217288,
+          "tokens": 919
+        },
+        {
+          "name": "analista",
+          "seconds": 4.599864,
+          "tokens": 2583
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.142613,
+          "tokens": 706
+        },
+        {
+          "name": "investigador",
+          "seconds": 3.773533,
+          "tokens": 1388
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.472698,
+          "tokens": 486
+        }
+      ]
+    },
+    {
+      "job_id": "fdd03c1c23c5",
+      "trace_id": "956366028d1f9e3da0e354b29484537a",
+      "seconds": 12.795549,
+      "prompt_tokens": 4776,
+      "completion_tokens": 759,
+      "cached_input_tokens": 0,
+      "cost_usd": 0.0011718,
+      "llm_calls": 8,
+      "nodes": [
+        {
+          "name": "sintesis",
+          "seconds": 1.416858,
+          "tokens": 585
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.040882,
+          "tokens": 883
+        },
+        {
+          "name": "analista",
+          "seconds": 4.155192,
+          "tokens": 1710
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.324074,
+          "tokens": 611
+        },
+        {
+          "name": "investigador",
+          "seconds": 2.98301,
+          "tokens": 1249
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.848203,
+          "tokens": 497
+        }
+      ]
+    },
+    {
+      "job_id": "241a822541a9",
+      "trace_id": "cdd3cf90a5eb99e9b58167fe21ab1430",
+      "seconds": 11.138524,
+      "prompt_tokens": 5095,
+      "completion_tokens": 682,
+      "cached_input_tokens": 0,
+      "cost_usd": 0.0011734500000000001,
+      "llm_calls": 8,
+      "nodes": [
+        {
+          "name": "sintesis",
+          "seconds": 1.424513,
+          "tokens": 564
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.076348,
+          "tokens": 848
+        },
+        {
+          "name": "analista",
+          "seconds": 2.323799,
+          "tokens": 1659
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.052522,
+          "tokens": 739
+        },
+        {
+          "name": "investigador",
+          "seconds": 3.672304,
+          "tokens": 1478
+        },
+        {
+          "name": "supervisor",
+          "seconds": 1.553815,
+          "tokens": 489
+        }
+      ]
+    }
+  ]
+}
