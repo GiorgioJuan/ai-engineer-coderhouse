@@ -1,0 +1,15 @@
+.git
+.env
+.env.*
+.venv
+.runtime
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+**/*.egg-info
+**/dist
+# La imagen del backend sólo copia backend/, config/ y demo/.
+frontend
+evidence
+docs

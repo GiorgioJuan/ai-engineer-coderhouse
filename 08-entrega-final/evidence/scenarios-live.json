@@ -1,0 +1,208 @@
+{
+  "started_at": "2026-10-03T22:44:21.798507+00:00",
+  "scenarios": [
+    {
+      "name": "revision_fundamentada",
+      "status": "ok",
+      "seconds": 61.5,
+      "cost_usd": 0.00344108,
+      "project_id": "7f41dc360e7243b6b413116fc22ff2e5",
+      "session_id": "9add5fca04634124bf6ff7941a056d16",
+      "questions": [
+        {
+          "reviewer_id": "experimentacion",
+          "criterion_id": "evidencia",
+          "basis": "document",
+          "citations_verified": 3,
+          "text": "El prototipo navegable y las entrevistas están hechos, pero todavía falta validar el calendario con la coordinadora y probar el control de reservas simultáneas. ¿Qué llegaron a ejecutar hasta ahora y qué evidencia concreta tienen de que el prototipo resuelve el problema mejor que la gestión por mensajes?"
+        },
+        {
+          "reviewer_id": "estrategia",
+          "criterion_id": "problema",
+          "basis": "document",
+          "citations_verified": 3,
+          "text": "¿Qué les contaron concretamente la coordinadora y los asistentes en las cinco entrevistas sobre cómo gestionan hoy las reservas y qué cambio del calendario les resultaría más valioso?"
+        },
+        {
+          "reviewer_id": "arquitectura",
+          "criterion_id": "decisiones_tecnicas",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "Si dos personas solicitan a la vez la misma sala y horario, ¿qué restricción concreta justifica validar en el servidor en vez de confiar en el calendario, y qué prueba tienen prevista para verificarlo antes de defender el alcance?"
+        }
+      ],
+      "report": {
+        "criteria": {
+          "problema": "partial",
+          "decisiones_tecnicas": "partial",
+          "evidencia": "partial",
+          "alcance": "not_assessed"
+        },
+        "next_steps": 3,
+        "comparison": null
+      }
+    },
+    {
+      "name": "evidencia_insuficiente",
+      "status": "ok",
+      "seconds": 41.5,
+      "cost_usd": 0.00274682,
+      "project_id": "7213a260e9634b388b3abb46070bda8f",
+      "session_id": "cc45d86061b541c6821102ceba6ed01b",
+      "questions": [
+        {
+          "reviewer_id": "experimentacion",
+          "criterion_id": "problema",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "Mencionás que validaron el prototipo y resolvieron la concurrencia, pero el avance registra ambas tareas como pendientes: ¿qué llegaron a ejecutar y qué evidencia tienen del flujo probado con la coordinadora y de impedir reservas simultáneas?"
+        },
+        {
+          "reviewer_id": "arquitectura",
+          "criterion_id": "decisiones_tecnicas",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "¿Qué mecanismo eligieron para impedir reservas simultáneas de una misma sala, qué alternativa descartaron y qué prueba concreta respalda que funciona, dado que el avance todavía lo registra como pendiente?"
+        },
+        {
+          "reviewer_id": "entrega",
+          "criterion_id": "evidencia",
+          "basis": "document",
+          "citations_verified": 3,
+          "text": "El avance sólo acredita las entrevistas y el prototipo, y deja pendiente la validación con la coordinadora y la prevención de reservas simultáneas; ¿qué evidencia concreta pueden presentar para comprobar que esas dos tareas se ejecutaron?"
+        }
+      ],
+      "report": {
+        "criteria": {
+          "problema": "partial",
+          "decisiones_tecnicas": "missing",
+          "evidencia": "missing",
+          "alcance": "not_assessed"
+        },
+        "next_steps": 3,
+        "comparison": null
+      }
+    },
+    {
+      "name": "seguimiento_semanal",
+      "status": "ok",
+      "seconds": 52.9,
+      "cost_usd": 0.00358954,
+      "project_id": "7f41dc360e7243b6b413116fc22ff2e5",
+      "session_id": "a47ac9874471420285fce26a1967f19f",
+      "previous_session_id": "9add5fca04634124bf6ff7941a056d16",
+      "questions": [
+        {
+          "reviewer_id": "experimentacion",
+          "criterion_id": "evidencia",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "Mencionás que probaron el flujo y definieron el control de concurrencia, mientras que el material lo presenta como una validación futura: ¿qué llegaron a ejecutar, qué resultado observaron y qué registro lo respalda?"
+        },
+        {
+          "reviewer_id": "arquitectura",
+          "criterion_id": "alcance",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "La prueba con la coordinadora ya produjo cambios en el prototipo; en cambio, el material deja para después probar dos solicitudes simultáneas contra la API. ¿Qué control de concurrencia acordaron exactamente, qué parte está implementada y qué evidencia tienen de que evita confirmar dos reservas para la misma sala y horario?"
+        },
+        {
+          "reviewer_id": "estrategia",
+          "criterion_id": "problema",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "La coordinadora ya completó tres de cuatro tareas sin ayuda, y los asistentes quieren consultar la disponibilidad antes de solicitar; ¿qué problema de su rutina actual priorizaron resolver y qué evidencia concreta mostró que el flujo probado mejora esa experiencia?"
+        }
+      ],
+      "report": {
+        "criteria": {
+          "problema": "missing",
+          "decisiones_tecnicas": "not_assessed",
+          "evidencia": "missing",
+          "alcance": "partial"
+        },
+        "next_steps": 3,
+        "comparison": "Comparación con la sesión anterior: problema: partial (c5bb1c976f1444f28e3e6cb811a41d6b@v1, c5bb1c976f1444f28e3e6cb811a41d6b@v1, 9dc450e17ec14d2ab413f047ebc7436d@v1) → missing (ad49b3031d404e53bd23c797548ba93d@v1, c5bb1c976f1444f28e3e6cb811a41d6b@v1); decisiones_tecnicas: partial (29a92b33bf854efbb5c5781dd46b6a98@v1, 0b2ec8acda0740f8be055bfea7625e53@v1) → not_assessed (sin fuente); evidencia: partial (29a92b33bf854efbb5c5781dd46b6a98@v1, 0b2ec8acda0740f8be055bfea7625e53@v1, 9dc450e17ec14d2ab413f047ebc7436d@v1) → missing (sin fuente); alcance: not_assessed (sin fuente) → partial (ad49b3031d404e53bd23c797548ba93d@v1)."
+      }
+    },
+    {
+      "name": "reinicio_con_pausa",
+      "status": "ok",
+      "seconds": 49.2,
+      "cost_usd": 0.00319852,
+      "project_id": "7f41dc360e7243b6b413116fc22ff2e5",
+      "session_id": "281ef726d5fc40189c14b1a2691f8568",
+      "pending_question_preserved": true,
+      "questions": [
+        {
+          "reviewer_id": "entrega",
+          "criterion_id": "evidencia",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "El avance comprobable es un prototipo navegable; la persistencia y el control de reservas simultáneas siguen propuestos, y falta validar con la coordinadora. ¿Qué resultado concreto del prototipo ya probaron y qué evidencia tienen de esa prueba?"
+        },
+        {
+          "reviewer_id": "claridad",
+          "criterion_id": "decisiones_tecnicas",
+          "basis": "document",
+          "citations_verified": 2,
+          "text": "El brief señala que ya hubo reservas duplicadas y propone validar la disponibilidad en el servidor. ¿Podés recorrer un ejemplo de dos solicitudes para la misma sala y explicar cómo esa verificación evitaría confirmarlas a ambas, y qué parte de ese control está implementada hoy?"
+        },
+        {
+          "reviewer_id": "entrega",
+          "criterion_id": "alcance",
+          "basis": "document",
+          "citations_verified": 3,
+          "text": "La primera entrega ya delimita calendario, solicitud, confirmación e historial básico, pero el control de reservas simultáneas y la validación con la coordinadora siguen pendientes; ¿qué resultado acotado van a entregar para esa validación y qué evidencia permitirá acordar con el cliente si el flujo cumple?"
+        }
+      ],
+      "report": {
+        "criteria": {
+          "problema": "not_assessed",
+          "decisiones_tecnicas": "partial",
+          "evidencia": "partial",
+          "alcance": "partial"
+        },
+        "next_steps": 3,
+        "comparison": null
+      }
+    },
+    {
+      "name": "validacion_y_cierre",
+      "status": "ok",
+      "seconds": 7.0,
+      "cost_usd": 0.00045814,
+      "project_id": "7f41dc360e7243b6b413116fc22ff2e5",
+      "session_id": "3176cea1185d491db10ad940a9502ff6",
+      "rejected_status_codes": {
+        "proyecto_sin_titulo": 422,
+        "campo_desconocido": 422,
+        "seis_evaluadores": 422,
+        "revision_desactualizada": 409
+      },
+      "idempotent_finish": true,
+      "report": {
+        "criteria": {
+          "problema": "not_assessed",
+          "decisiones_tecnicas": "not_assessed",
+          "evidencia": "not_assessed",
+          "alcance": "not_assessed"
+        },
+        "next_steps": 0,
+        "comparison": null
+      }
+    }
+  ],
+  "llm_mode": "live",
+  "budget_before": {
+    "prior": "0.0152694",
+    "spent": "0.03688991",
+    "reserved": "0"
+  },
+  "budget_after": {
+    "prior": "0.0152694",
+    "spent": "0.05032401",
+    "reserved": "0"
+  },
+  "finished_at": "2026-10-03T22:48:01.912805+00:00"
+}

@@ -1,0 +1,10 @@
+:root {
+  --paper: #f5f2eb;
+  --ink: #202824;
+  --green: #255c4d;
+  --muted: #56625a;
+  --field-border: #7f8a80;
+  --line: #d6d9d0;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

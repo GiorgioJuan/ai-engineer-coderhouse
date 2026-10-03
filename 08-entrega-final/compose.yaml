@@ -1,0 +1,91 @@
+name: panellab
+
+x-backend: &backend
+  image: panellab-backend:local
+  build:
+    context: .
+    dockerfile: backend/Dockerfile
+  environment: &backend-env
+    PANEL_REDIS_URL: redis://redis:6379/0
+    PANEL_CONFIG_DIR: /srv/config
+    PANEL_DEMO_DIR: /srv/demo/laboratorio3
+    PANEL_LLM_MODE: ${PANEL_LLM_MODE:-demo}
+    PANEL_LLM_BASE_URL: ${PANEL_LLM_BASE_URL:-https://api.openai.com/v1}
+    PANEL_OPENAI_API_KEY: ${PANEL_OPENAI_API_KEY:-}
+    PANEL_CHAT_MODEL: ${PANEL_CHAT_MODEL:-gpt-6-luna}
+    PANEL_REASONING_EFFORT: ${PANEL_REASONING_EFFORT:-low}
+    PANEL_MAX_OUTPUT_TOKENS: ${PANEL_MAX_OUTPUT_TOKENS:-4000}
+    PANEL_EMBEDDING_MODEL: ${PANEL_EMBEDDING_MODEL:-text-embedding-3-small}
+    PANEL_EMBEDDING_DIMENSIONS: ${PANEL_EMBEDDING_DIMENSIONS:-1536}
+    PANEL_BUDGET_CAP_USD: ${PANEL_BUDGET_CAP_USD:-0.95}
+    PANEL_BUDGET_PRIOR_USD: ${PANEL_BUDGET_PRIOR_USD:-0}
+    PANEL_RAG_INDEX: ${PANEL_RAG_INDEX:-panellab:chunks}
+    PANEL_PHOENIX_ENDPOINT: http://phoenix:6006/v1/traces
+    PANEL_PHOENIX_PROJECT: ${PANEL_PHOENIX_PROJECT:-panellab}
+    PANEL_TRACE_CONTENT: ${PANEL_TRACE_CONTENT:-true}
+  depends_on:
+    redis:
+      condition: service_healthy
+    phoenix:
+      condition: service_started
+  restart: unless-stopped
+
+services:
+  redis:
+    image: redis/redis-stack-server@sha256:798ab84d9f266936b034ab11c4d04a2b8e4b441884c5aa7d17ac951eefdf742a
+    environment:
+      REDIS_ARGS: --appendonly yes
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+
+  # Redis desechable para los tests de integración: sólo con `--profile test`.
+  redis-test:
+    image: redis/redis-stack-server@sha256:798ab84d9f266936b034ab11c4d04a2b8e4b441884c5aa7d17ac951eefdf742a
+    profiles: [test]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+
+  phoenix:
+    image: arizephoenix/phoenix:version-20.16.0
+    environment:
+      PHOENIX_WORKING_DIR: /data
+    volumes:
+      - phoenix-data:/data
+    ports:
+      - 127.0.0.1:${PANEL_PHOENIX_PORT:-6007}:6006
+    restart: unless-stopped
+
+  api:
+    <<: *backend
+    command: [uvicorn, app.main:app, --host, 0.0.0.0, --port, "8000"]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health/live')"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  worker:
+    <<: *backend
+    command: [python, -m, app.worker]
+
+  web:
+    build: ./frontend
+    ports:
+      - 127.0.0.1:${PANEL_WEB_PORT:-8080}:80
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+  phoenix-data:

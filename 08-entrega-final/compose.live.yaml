@@ -1,0 +1,33 @@
+# Combinar con compose.yaml. Conserva la base demo y usa otra base persistente
+# para todos los ensayos live, incluido su ledger de presupuesto acumulado.
+services:
+  redis-live:
+    image: redis/redis-stack-server@sha256:798ab84d9f266936b034ab11c4d04a2b8e4b441884c5aa7d17ac951eefdf742a
+    environment:
+      REDIS_ARGS: --appendonly yes
+    volumes:
+      - redis-live-data:/data
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+  api:
+    environment:
+      PANEL_REDIS_URL: redis://redis-live:6379/0
+      PANEL_LLM_MODE: live
+      PANEL_OPENAI_API_KEY: ${PANEL_OPENAI_API_KEY:?Definir PANEL_OPENAI_API_KEY en .env para activar live}
+    depends_on:
+      redis-live:
+        condition: service_healthy
+  worker:
+    environment:
+      PANEL_REDIS_URL: redis://redis-live:6379/0
+      PANEL_LLM_MODE: live
+      PANEL_OPENAI_API_KEY: ${PANEL_OPENAI_API_KEY:?Definir PANEL_OPENAI_API_KEY en .env para activar live}
+    depends_on:
+      redis-live:
+        condition: service_healthy
+volumes:
+  redis-live-data:

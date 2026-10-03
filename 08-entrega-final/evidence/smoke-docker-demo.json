@@ -1,0 +1,22 @@
+{
+  "mode": "demo",
+  "provider_calls": 0,
+  "project_id": "8ef0a42f1b97466a988a70eeaaf37687",
+  "session_ids": [
+    "d909950f2a6f4cdb98a3dee149587cd9",
+    "6cc418b49add4faa8c4cfd9374db7813"
+  ],
+  "checks": [
+    "demo_mode_no_provider_calls",
+    "project_idempotency",
+    "real_redis_document_index",
+    "langgraph_interrupt_persisted",
+    "source_citations_verified",
+    "answer_idempotency",
+    "three_rounds_completed",
+    "structured_report",
+    "weekly_context_and_early_finish",
+    "invalid_input_rejected"
+  ],
+  "citations_checked": 3
+}

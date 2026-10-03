@@ -1,0 +1,200 @@
+{
+  "mode": "demo",
+  "before": {
+    "id": "d6ba55f9efd84cd991c51119f5ff1779",
+    "project_id": "a81bc627696544bf9dd58880c140f405",
+    "objective": "Continuar después de reiniciar el servidor",
+    "status": "WAITING_RESPONSE",
+    "revision": 1,
+    "question_count": 1,
+    "max_questions": 3,
+    "pending_question": {
+      "id": "d6ba55f9efd84cd991c51119f5ff1779:q1",
+      "reviewer_id": "cliente",
+      "criterion_id": "alcance",
+      "text": "¿Qué evidencia concreta respalda alcance y próximos pasos y cómo comprobaste ese avance?",
+      "basis": "document",
+      "citations": [
+        {
+          "document_id": "9e1576387cbd44f7aa150fea2519b61f",
+          "version": 1,
+          "chunk_id": "9e1576387cbd44f7aa150fea2519b61f:v1:0",
+          "section": "Alcance",
+          "excerpt": "# Entrevistas\n\nSe entrevistó a 5 personas. El prototipo aún no fue validado.\n\n## Alcance\nLa primera entrega no incluye pagos."
+        }
+      ],
+      "related_turn_ids": []
+    },
+    "transcript": [
+      {
+        "id": "b95df0f59fa948b3aa810d89c7ea753d",
+        "kind": "presentation",
+        "author_id": "user",
+        "text": "Retomamos nuestro avance y queremos defender qué evidencia falta.",
+        "citations": [],
+        "created_at": "2026-09-28T22:02:56.581557Z"
+      },
+      {
+        "id": "d6ba55f9efd84cd991c51119f5ff1779:q1",
+        "kind": "question",
+        "author_id": "cliente",
+        "text": "¿Qué evidencia concreta respalda alcance y próximos pasos y cómo comprobaste ese avance?",
+        "citations": [
+          {
+            "document_id": "9e1576387cbd44f7aa150fea2519b61f",
+            "version": 1,
+            "chunk_id": "9e1576387cbd44f7aa150fea2519b61f:v1:0",
+            "section": "Alcance",
+            "excerpt": "# Entrevistas\n\nSe entrevistó a 5 personas. El prototipo aún no fue validado.\n\n## Alcance\nLa primera entrega no incluye pagos."
+          }
+        ],
+        "created_at": "2026-09-28T22:02:56.633693Z"
+      }
+    ],
+    "active_job_id": null,
+    "report_id": null,
+    "snapshot": {
+      "profile_versions": [
+        {
+          "id": "cliente",
+          "version": 1
+        },
+        {
+          "id": "producto",
+          "version": 1
+        },
+        {
+          "id": "tecnico",
+          "version": 1
+        }
+      ],
+      "rubric_version": {
+        "id": "proyecto-cliente",
+        "version": 1
+      },
+      "document_versions": [
+        {
+          "document_id": "9e1576387cbd44f7aa150fea2519b61f",
+          "version": 1
+        }
+      ],
+      "previous_session_id": "b067d121d69342b1a8ae93b6287eec35"
+    },
+    "created_at": "2026-09-28T22:02:56.581547Z",
+    "updated_at": "2026-09-28T22:02:56.642972Z"
+  },
+  "after": {
+    "id": "d6ba55f9efd84cd991c51119f5ff1779",
+    "project_id": "a81bc627696544bf9dd58880c140f405",
+    "objective": "Continuar después de reiniciar el servidor",
+    "status": "WAITING_RESPONSE",
+    "revision": 3,
+    "question_count": 2,
+    "max_questions": 3,
+    "pending_question": {
+      "id": "d6ba55f9efd84cd991c51119f5ff1779:q2",
+      "reviewer_id": "producto",
+      "criterion_id": "evidencia",
+      "text": "¿Qué evidencia concreta respalda evidencia del avance y cómo comprobaste ese avance?",
+      "basis": "document",
+      "citations": [
+        {
+          "document_id": "9e1576387cbd44f7aa150fea2519b61f",
+          "version": 1,
+          "chunk_id": "9e1576387cbd44f7aa150fea2519b61f:v1:0",
+          "section": "Alcance",
+          "excerpt": "# Entrevistas\n\nSe entrevistó a 5 personas. El prototipo aún no fue validado.\n\n## Alcance\nLa primera entrega no incluye pagos."
+        }
+      ],
+      "related_turn_ids": []
+    },
+    "transcript": [
+      {
+        "id": "b95df0f59fa948b3aa810d89c7ea753d",
+        "kind": "presentation",
+        "author_id": "user",
+        "text": "Retomamos nuestro avance y queremos defender qué evidencia falta.",
+        "citations": [],
+        "created_at": "2026-09-28T22:02:56.581557Z"
+      },
+      {
+        "id": "d6ba55f9efd84cd991c51119f5ff1779:q1",
+        "kind": "question",
+        "author_id": "cliente",
+        "text": "¿Qué evidencia concreta respalda alcance y próximos pasos y cómo comprobaste ese avance?",
+        "citations": [
+          {
+            "document_id": "9e1576387cbd44f7aa150fea2519b61f",
+            "version": 1,
+            "chunk_id": "9e1576387cbd44f7aa150fea2519b61f:v1:0",
+            "section": "Alcance",
+            "excerpt": "# Entrevistas\n\nSe entrevistó a 5 personas. El prototipo aún no fue validado.\n\n## Alcance\nLa primera entrega no incluye pagos."
+          }
+        ],
+        "created_at": "2026-09-28T22:02:56.633693Z"
+      },
+      {
+        "id": "d6ba55f9efd84cd991c51119f5ff1779:q1:answer",
+        "kind": "answer",
+        "author_id": "presenter",
+        "text": "La evidencia del documento sigue siendo cinco entrevistas. La prueba de usabilidad es el próximo paso.",
+        "citations": [],
+        "created_at": "2026-09-28T22:03:34.426208Z"
+      },
+      {
+        "id": "d6ba55f9efd84cd991c51119f5ff1779:q2",
+        "kind": "question",
+        "author_id": "producto",
+        "text": "¿Qué evidencia concreta respalda evidencia del avance y cómo comprobaste ese avance?",
+        "citations": [
+          {
+            "document_id": "9e1576387cbd44f7aa150fea2519b61f",
+            "version": 1,
+            "chunk_id": "9e1576387cbd44f7aa150fea2519b61f:v1:0",
+            "section": "Alcance",
+            "excerpt": "# Entrevistas\n\nSe entrevistó a 5 personas. El prototipo aún no fue validado.\n\n## Alcance\nLa primera entrega no incluye pagos."
+          }
+        ],
+        "created_at": "2026-09-28T22:03:34.442199Z"
+      }
+    ],
+    "active_job_id": null,
+    "report_id": null,
+    "snapshot": {
+      "profile_versions": [
+        {
+          "id": "cliente",
+          "version": 1
+        },
+        {
+          "id": "producto",
+          "version": 1
+        },
+        {
+          "id": "tecnico",
+          "version": 1
+        }
+      ],
+      "rubric_version": {
+        "id": "proyecto-cliente",
+        "version": 1
+      },
+      "document_versions": [
+        {
+          "document_id": "9e1576387cbd44f7aa150fea2519b61f",
+          "version": 1
+        }
+      ],
+      "previous_session_id": "b067d121d69342b1a8ae93b6287eec35"
+    },
+    "created_at": "2026-09-28T22:02:56.581547Z",
+    "updated_at": "2026-09-28T22:03:34.447957Z"
+  },
+  "result": "PASS",
+  "checks": [
+    "same_question",
+    "same_sources",
+    "same_transcript",
+    "answer_resumed_once"
+  ]
+}
